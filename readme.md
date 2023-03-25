@@ -1,10 +1,7 @@
 INFO
 
 The auto-splitter is currently setup using A LOT of memory codes. An update could mess this whole thing up. For it's current state, it may be buggy since I didn't
-go super deep with the memory codes. The auto-splitter may or may not split at an unintended spot, or the "Game Time" timer may or may not pause at an unintended spot (I used memory
-codes for loads too). So if you run through any bugs, please report it to me on discord (Ndt#8844) and I will try my best to find a new memory code. Currently, the load
-remover is setup to function on both Nightmares AND Campaign. However, the auto-splitter is only intended on Campaign so far, but there might be a chance that it works
-on Nightmares.
+go super deep with the memory codes. The auto-splitter may or may not split at an unintended spot, or the "Game Time" timer may or may not pause at an unintended spot (I used memory codes for loads too). So if you run through any bugs, please report it to me on discord (Ndt#8844) and I will try my best to find a new memory code. Currently, the load remover is setup to function on both Nightmares AND Campaign. However, the auto-splitter is only intended on Campaign so far, but there might be a chance that it works on Nightmares. I'd honestly disable the auto-splitter on Nightmares by toggling off the "split", "start", and "reset" settings but I'd keep it activated so the load remover works (makes verifying runs easier).
 
 Black Ops 3 Auto-Splitter Settings Details
 
