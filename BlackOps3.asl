@@ -2,7 +2,7 @@ state("blackops3")
 {
 	int maploads : 0x51AC2FC;
 	int fastloads_safehouse : 0x3534808;
-	int fastloads_nightmares : 0xA54AD00;
+	int fastloads_nightmares : 0xA54AC40;
 	int fastloads_mission : 0x4D28860;
 	string70 levelStringName : 0x940C5E8;
 	string70 levelGametype : 0x1770D5DC;
