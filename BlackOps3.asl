@@ -24,6 +24,7 @@ state("blackops3")
 	int missionsplitter_9 : 0x4713B30;
 	int missionsplitter_10 : 0x180EA22C;	    // IGNORE, USING SKIPTO INSTEAD
 	int missionsplitter_11 : 0x3534808;
+	int missionreset_data : 0x10C3AE10;
 }
 
 startup
@@ -41,7 +42,8 @@ startup
 	vars.mission11split = false;
 	settings.Add("start_insafehouse", true, "Start Timer in Safehouse (For NG UI Stack)");
 	settings.Add("load_remover", true, "Load Remover");
-	settings.Add("old_missionsplit", false, "Auto-Split By Map (Not Reccomended)");
+	settings.Add("old_missionsplit", false, "Auto-Split By Map (Not Recommended)");
+	settings.Add("setting_ilmode", false, "IL Mode");
 	settings.Add("aslmissions", true, "Auto-Split Missions");
 	vars.aslmissions = new Dictionary<string,string> 
 	{  
@@ -65,6 +67,7 @@ startup
 
 start
 {
+	if ((((((((((((((settings["setting_ilmode"]) && (old.fastloads_mission!=18) && (current.fastloads_mission==18) && (current.levelStringName != "cp_sh_mobile") && (current.levelStringName != "cp_sh_singapore") && (current.levelStringName != "cp_sh_cairo") && (current.levelStringName != "core_frontend") && (current.levelStringName != "cp_mi_sing_biodomes2") && (current.levelStringName != "cp_mi_cairo_ramses2") && (current.levelStringName != "cp_mi_cairo_infection2") && (current.levelStringName != "cp_mi_cairo_infection3") && (current.levelStringName != "cp_mi_cairo_lotus2") && (current.levelStringName != "cp_mi_cairo_lotus3") && (current.maploads != 0)))))))))))))) return true;
 	if ((((old.fastloads_mission!=18) && (current.fastloads_mission==18) && (current.levelStringName == "cp_mi_eth_prologue") && (current.maploads != 0)))) return true;
 	if (((((old.fastloads_safehouse!=-1) && (current.fastloads_safehouse==-1) && (current.levelStringName == "cp_sh_mobile") && (current.maploads != 0) && (settings["start_insafehouse"]))))) return true;
 	if (((((old.fastloads_safehouse!=-1) && (current.fastloads_safehouse==-1) && (current.levelStringName == "cp_sh_singapore") && (current.maploads != 0) && (settings["start_insafehouse"]))))) return true;
@@ -211,7 +214,17 @@ split
 
 reset
 {
-	return((current.campaignreset_timer==1) && (current.levelStringName=="core_frontend"));
+	if ((((settings["setting_ilmode"]) && (current.levelStringName=="cp_mi_eth_prologue") && (current.missionreset_data!=old.missionreset_data) && (current.maploads != 0)))) return true;
+	if ((((settings["setting_ilmode"]) && (current.levelStringName=="cp_mi_zurich_newworld") && (current.missionreset_data!=old.missionreset_data) && (current.maploads != 0)))) return true;
+	if ((((settings["setting_ilmode"]) && (current.levelStringName=="cp_mi_sing_biodomes") && (current.missionreset_data!=old.missionreset_data) && (current.maploads != 0)))) return true;
+	if ((((settings["setting_ilmode"]) && (current.levelStringName=="cp_mi_sing_sgen") && (current.missionreset_data!=old.missionreset_data) && (current.maploads != 0)))) return true;
+	if ((((settings["setting_ilmode"]) && (current.levelStringName=="cp_mi_sing_vengeance") && (current.missionreset_data!=old.missionreset_data) && (current.maploads != 0)))) return true;
+	if ((((settings["setting_ilmode"]) && (current.levelStringName=="cp_mi_cairo_ramses") && (current.missionreset_data!=old.missionreset_data) && (current.maploads != 0)))) return true;
+	if ((((settings["setting_ilmode"]) && (current.levelStringName=="cp_mi_cairo_infection") && (current.missionreset_data!=old.missionreset_data) && (current.maploads != 0)))) return true;
+	if ((((settings["setting_ilmode"]) && (current.levelStringName=="cp_mi_cairo_aquifer") && (current.missionreset_data!=old.missionreset_data) && (current.maploads != 0)))) return true;
+	if ((((settings["setting_ilmode"]) && (current.levelStringName=="cp_mi_cairo_lotus") && (old.missionreset_data!=current.missionreset_data) && (current.maploads != 0)))) return true;
+	if ((((settings["setting_ilmode"]) && (current.levelStringName=="cp_mi_zurich_coalescence") && (current.missionreset_data!=old.missionreset_data) && (current.maploads != 0)))) return true;
+	if((current.campaignreset_timer==1) && (current.levelStringName=="core_frontend")) return true;
 }
 
 isLoading
