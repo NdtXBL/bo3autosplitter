@@ -15,11 +15,11 @@ state("blackops3")
 	int mission_skipto : 0xA55BEF0;
 	int missionsplitter_1 : 0x180E109C;
 	int missionsplitter_2 : 0xA55BEF4;
-	int missionsplitter_3 : 0x1683FD50;
+	int missionsplitter_3 : 0x10B0DC34;
 	int missionsplitter_4 : 0x544776C;
 	int missionsplitter_5 : 0x10A80AE8;
 	int missionsplitter_6 : 0x10A81944;
-	int missionsplitter_7 : 0x10A9E428;
+	int missionsplitter_7 : 0x10A95828;
 	int missionsplitter_8 : 0xF514D70;            // IGNORE, USING SKIPTO INSTEAD
 	int missionsplitter_9 : 0x4713B30;
 	int missionsplitter_10 : 0x180EA22C;	    // IGNORE, USING SKIPTO INSTEAD
