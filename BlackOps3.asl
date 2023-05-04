@@ -43,6 +43,7 @@ startup
 	settings.Add("start_insafehouse", true, "Start Timer in Safehouse (For NG UI Stack)");
 	settings.Add("load_remover", true, "Load Remover");
 	settings.Add("old_missionsplit", false, "Auto-Split By Map (Not Recommended)");
+	settings.Add("nightmares_fastloads", true, "Fast-Loads on Nightmares");
 	settings.Add("setting_ilmode", false, "IL Mode");
 	settings.Add("aslmissions", true, "Auto-Split Missions");
 	vars.aslmissions = new Dictionary<string,string> 
@@ -274,7 +275,10 @@ isLoading
 		if (((current.levelStringName=="cp_mi_cairo_lotus3") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
 		if (((current.levelStringName=="cp_mi_cairo_lotus3") && (current.mission_skipto==64) && (current.fastloads_loadoutsequence!=0))) return true;
 		if ((((((current.levelGametype!="cpzm") && (current.levelStringName!="core_frontend") && (current.levelStringName!="cp_sh_singapore") && (current.levelStringName!="cp_sh_cairo") && (current.levelStringName!="cp_sh_mobile") && (current.fastloads_mission==4)))))) return true;
-		if ((((((current.levelGametype=="cpzm") && (current.levelStringName!="core_frontend") && (current.levelStringName!="cp_sh_singapore") && (current.levelStringName!="cp_sh_cairo") && (current.levelStringName!="cp_sh_mobile") && (current.fastloads_nightmares==0)))))) return true;
+		if(settings["nightmares_fastloads"])
+		{
+			if ((((((current.levelGametype=="cpzm") && (current.levelStringName!="core_frontend") && (current.levelStringName!="cp_sh_singapore") && (current.levelStringName!="cp_sh_cairo") && (current.levelStringName!="cp_sh_mobile") && (current.fastloads_nightmares==0)))))) return true;
 	}
+		}
 	return false;
 }
