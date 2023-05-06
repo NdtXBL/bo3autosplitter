@@ -15,8 +15,14 @@ The auto-splitter is currently setup using A LOT of memory codes. An update coul
 
 **Load Remover**: Pauses the "Game Time" timer whenever the game is loading. In order for this to work, you must have a "Game Time" timer on your layout. It is recommended that you have both "Game Time" and "Real Time" timers to make verification easier.
 
+**Remove Nightmares Fast-Loads**: Disables the load remover removing fast-loads on Nightmares. Nightmares is buggy and the memory codes don't work as well on there so the fast-load memory code can break at times and cause the LRT to be way off. Disabling the setting prevents that but it will take longer to retime.
+
+**Remove Campaign Fast-Loads**: Disables the load remover removing fast-loads on the Campaign. The fast-loads memory code is known to break on co-op. Recommended you do leave this on unless the memory code breaks.
+
+**Remove Mission Load-out Sequence**: Disables the load remover removing the mission load-out sequence possibly because the code has a chance of breaking on co-op. Recommended you do leave this on unless the memory code breaks.
+
+**IL Mode**: Enabling this will make the timer reset everytime the mission restarts and automatically start the timer whenever the mission briefing appears on any mission which is intended for in-level speedruns. If you are speedrunning full-game, turn this setting off.
+
 **Auto-Split By Map**: When toggled on, the auto-splitter will split when the map is fully loaded out instead of splitting similar to the current timing method. Only use this when you are having issues without this option on.
 
 **Auto-Split Missions**: This will determine if the auto-splitter will function on the desired mission(s)
-
-**Nightmares Fast-Loads**: Disables the load remover removing fast-loads on Nightmares. Nightmares is buggy and the memory codes don't work as well on there so the fast-load memory code can break at times and cause the LRT to be way off. Disabling the setting prevents that but it will take longer to retime.
