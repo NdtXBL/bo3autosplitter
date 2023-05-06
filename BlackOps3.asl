@@ -43,7 +43,9 @@ startup
 	settings.Add("start_insafehouse", true, "Start Timer in Safehouse (For NG UI Stack)");
 	settings.Add("load_remover", true, "Load Remover");
 	settings.Add("old_missionsplit", false, "Auto-Split By Map (Not Recommended)");
-	settings.Add("nightmares_fastloads", true, "Fast-Loads on Nightmares");
+	settings.Add("nightmares_fastloads", false, "Remove Fast-Loads on Nightmares (Not Recommended)");
+	settings.Add("campaign_fastloads", true, "Remove Fast-Loads on Campaign");
+	settings.Add("enloadout_sequence", true, "Remove Mission Loadout Sequence");
 	settings.Add("setting_ilmode", false, "IL Mode");
 	settings.Add("aslmissions", true, "Auto-Split Missions");
 	vars.aslmissions = new Dictionary<string,string> 
@@ -236,49 +238,52 @@ isLoading
 		if ((current.levelStringName=="cp_sh_singapore") && (current.fastloads_safehouse!=-1)) return true;
 		if ((current.levelStringName=="cp_sh_cairo") && (current.fastloads_safehouse!=-1)) return true;
 		if ((current.levelStringName=="cp_sh_mobile") && (current.fastloads_safehouse!=-1)) return true;
-		if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==8) && (current.whiteload_newworld2!=0))) return true;
-		if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==16) && (current.whiteload_newworld2!=0))) return true;
-		if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==2048) && (current.whiteload_newworld2!=0))) return true;
-		if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==262144) && (current.whiteload_newworld2!=0))) return true;
-		if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==33554432) && (current.whiteload_newworld2!=0))) return true;
-		if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==536870912) && (current.whiteload_newworld2!=0))) return true;
-		if (((current.levelStringName=="cp_mi_eth_prologue") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_eth_prologue") && (current.mission_skipto==16777216) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==536870912) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_sing_blackstation") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_sing_blackstation") && (current.mission_skipto==524288) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_sing_biodomes") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_sing_biodomes") && (current.mission_skipto==8192) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_sing_biodomes2") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_sing_biodomes2") && (current.mission_skipto==64) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_sing_sgen") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_sing_sgen") && (current.mission_skipto==67108864) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_sing_vengeance") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_sing_vengeance") && (current.mission_skipto==131072) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_ramses") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_ramses") && (current.mission_skipto==128) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_ramses2") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_ramses2") && (current.mission_skipto==1024) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_infection") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_infection") && (current.mission_skipto==512) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_infection2") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_infection2") && (current.mission_skipto==131072) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_infection3") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_infection3") && (current.mission_skipto==512) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_aquifer") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_aquifer") && (current.mission_skipto==1048576) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_lotus") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_lotus") && (current.mission_skipto==512) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_lotus2") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_lotus2") && (current.mission_skipto==8192) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_lotus3") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
-		if (((current.levelStringName=="cp_mi_cairo_lotus3") && (current.mission_skipto==64) && (current.fastloads_loadoutsequence!=0))) return true;
-		if ((((((current.levelGametype!="cpzm") && (current.levelStringName!="core_frontend") && (current.levelStringName!="cp_sh_singapore") && (current.levelStringName!="cp_sh_cairo") && (current.levelStringName!="cp_sh_mobile") && (current.fastloads_mission==4)))))) return true;
-		if(settings["nightmares_fastloads"])
+		if(settings["campaign_fastloads"])
 		{
-			if ((((((current.levelGametype=="cpzm") && (current.levelStringName!="core_frontend") && (current.levelStringName!="cp_sh_singapore") && (current.levelStringName!="cp_sh_cairo") && (current.levelStringName!="cp_sh_mobile") && (current.fastloads_nightmares==0)))))) return true;
-	}
+			if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==8) && (current.whiteload_newworld2!=0))) return true;
+			if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==16) && (current.whiteload_newworld2!=0))) return true;
+			if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==2048) && (current.whiteload_newworld2!=0))) return true;
+			if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==262144) && (current.whiteload_newworld2!=0))) return true;
+			if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==33554432) && (current.whiteload_newworld2!=0))) return true;
+			if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==536870912) && (current.whiteload_newworld2!=0))) return true;
 		}
+		if(settings["enloadout_sequence"])
+		{
+			if (((current.levelStringName=="cp_mi_eth_prologue") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_eth_prologue") && (current.mission_skipto==16777216) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_zurich_newworld") && (current.mission_skipto==536870912) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_sing_blackstation") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_sing_blackstation") && (current.mission_skipto==524288) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_sing_biodomes") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_sing_biodomes") && (current.mission_skipto==8192) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_sing_biodomes2") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_sing_biodomes2") && (current.mission_skipto==64) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_sing_sgen") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_sing_sgen") && (current.mission_skipto==67108864) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_sing_vengeance") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_sing_vengeance") && (current.mission_skipto==131072) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_ramses") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_ramses") && (current.mission_skipto==128) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_ramses2") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_ramses2") && (current.mission_skipto==1024) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_infection") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_infection") && (current.mission_skipto==512) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_infection2") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_infection2") && (current.mission_skipto==131072) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_infection3") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_infection3") && (current.mission_skipto==512) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_aquifer") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_aquifer") && (current.mission_skipto==1048576) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_lotus") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_lotus") && (current.mission_skipto==512) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_lotus2") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_lotus2") && (current.mission_skipto==8192) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_lotus3") && (current.mission_skipto==0) && (current.fastloads_loadoutsequence!=0))) return true;
+			if (((current.levelStringName=="cp_mi_cairo_lotus3") && (current.mission_skipto==64) && (current.fastloads_loadoutsequence!=0))) return true;
+		}
+		if (((((((current.levelGametype!="cpzm") && (settings["campaign_fastloads"]) && (current.levelStringName!="core_frontend") && (current.levelStringName!="cp_sh_singapore") && (current.levelStringName!="cp_sh_cairo") && (current.levelStringName!="cp_sh_mobile") && (current.fastloads_mission==4))))))) return true;
+		if (((((((current.levelGametype=="cpzm") && (settings["nightmares_fastloads"]) && (current.levelStringName!="core_frontend") && (current.levelStringName!="cp_sh_singapore") && (current.levelStringName!="cp_sh_cairo") && (current.levelStringName!="cp_sh_mobile") && (current.fastloads_nightmares==0))))))) return true;
+	}
 	return false;
 }
