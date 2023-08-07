@@ -1,6 +1,6 @@
 # Black Ops 3 Auto-Splitter Info
 
-The auto-splitter is currently setup using A LOT of memory codes. An update could mess this whole thing up. For it's current state, it works perfectly as intended for the US version on steam (other than nightmares). If you run through any bugs, please report it to me on discord (*Ndt#8844*) and I will try my best to find a new memory code. Currently, the load remover is setup to function on both Nightmares AND Campaign. However, the auto-splitter is only intended on Campaign so far, but there might be a chance that it works on Nightmares. I'd honestly disable the auto-splitter on Nightmares by toggling off the "split", "start", and "reset" settings but I'd keep the ASL script activated so the load remover works (makes verifying runs easier). You can easily set this up by creating a "Scriptable Auto-Splitter" layer on your livesplit layout and applying the .ASL script from the releases to it.
+The auto-splitter is currently setup using A LOT of memory codes. An update could mess this whole thing up. For it's current state, it works perfectly as intended for the US version on steam (other than nightmares). If you run through any bugs, please report it to me on discord (*Ndt#8844* // *@NdtXBL*) and I will try my best to find a new memory code. Currently, the load remover is setup to function on both Nightmares AND Campaign. However, the auto-splitter is only intended on Campaign so far, but there might be a chance that it works on Nightmares. I'd honestly disable the auto-splitter on Nightmares by toggling off the "split", "start", and "reset" settings but I'd keep the ASL script activated so the load remover works (makes verifying runs easier). You can easily set this up by creating a "Scriptable Auto-Splitter" layer on your livesplit layout and applying the .ASL script from the releases to it.
 
 
 # Black Ops 3 Auto-Splitter Settings
@@ -26,3 +26,7 @@ The auto-splitter is currently setup using A LOT of memory codes. An update coul
 **Auto-Split By Map**: When toggled on, the auto-splitter will split when the map is fully loaded out instead of splitting similar to the current timing method. Only use this when you are having issues without this option on.
 
 **Auto-Split Missions**: This will determine if the auto-splitter will function on the desired mission(s)
+
+# Known Issues
+- Memory codes break in co-op lobbies (fast-loads/mission load-out sequence on the load remover doesn't work, auto-splitter only works for host). You can avoid this by disabling the **Remove Campaign Fast-Loads** and **Remove Mission Load-out Sequence** toggle.
+- Nightmares fast-loads are buggy. You can avoid this by disabling the **Remove Nightmares Fast-Loads** toggle.
