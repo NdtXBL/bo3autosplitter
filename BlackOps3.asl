@@ -35,8 +35,8 @@ startup
 	settings.Add("setting_ilskiptor", false, "Reset By Skipto", "setting_ilmode");
 	settings.Add("setting_ilskiptos", false, "Split By Skipto", "setting_ilmode");
 	settings.Add("load_remover", true, "Load Remover");
-	settings.Add("setting_fastloads", true, "Remove Fast-Loads on Campaign", "load_remover");
-	settings.Add("og_fastloads", false, "OG Fast-Loads", "setting_fastloads");
+	settings.Add("setting_fastloads", true, "Remove Fast-Loads", "load_remover");
+	settings.Add("og_fastloads", false, "Remove OG Fast-Loads", "setting_fastloads");
 	settings.Add("setting_loadoutseq", true, "Mission Load-out Sequence", "load_remover");
 	settings.Add("aslmissions", true, "Auto-Split Missions");
 	vars.aslmissions = new Dictionary<string,string> 
