@@ -19,7 +19,7 @@ The auto-splitter is currently setup using A LOT of memory codes. An update coul
 
 **OG Fast-Loads**: Uses the OG fast-loads memory code. Doesn't include the entire fast-load (only includes 6/8 of it). Known to break after retriggering a death warp that has been done already and in co-op lobbies.
 
-**Remove Mission Load-out Sequence**: Disables the load remover removing the mission load-out sequence possibly because the code has a chance of breaking on co-op. Recommended you do leave this on unless the memory code breaks.
+**Remove Map Load-out Sequence**: Disables the load remover removing the mission load-out sequence possibly because the code has a chance of breaking on co-op. Recommended you do leave this on unless the memory code breaks.
 
 **IL Mode**: Enabling this will make the timer reset everytime the mission restarts and automatically start the timer whenever the mission briefing appears on any mission which is intended for in-level speedruns. If you are speedrunning full-game, turn this setting off.
 
