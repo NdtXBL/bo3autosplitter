@@ -30,4 +30,4 @@ The auto-splitter is currently setup using A LOT of memory codes. An update coul
 **Auto-Split Missions**: This will determine if the auto-splitter will function on the desired mission(s)
 
 # Known Issues
-- Memory codes break in co-op lobbies (fast-loads/mission load-out sequence on the load remover doesn't work, auto-splitter only works for host). You can avoid some of these issues by disabling the **Remove Fast-Loads**.
+- Memory codes break in co-op lobbies (fast-loads on the load remover doesn't work, auto-splitter only works for host). You can avoid some of these issues by disabling the **Remove Fast-Loads**.
