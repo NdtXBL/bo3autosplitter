@@ -116,17 +116,17 @@ state("BlackOps3", "windows")
 	string70 gamemode : 0x1858937C;
 }
 
-state("boiii_vanilla", "boiii") //doesn't work. i will maybe try to fix soon.
+state("boiii_vanilla", "boiii")
 {
-	int loads_switchmap : "BlackOps3.exe", 0x348F7DC;
-	int loads_fastload : "BlackOps3.exe", 0x3534808;
-	int loads_whiteigc : "BlackOps3.exe", 0x4D4B910;
-	int cp_statsreset : "BlackOps3.exe", 0x53DC2A0;
-	int mission_skipto : "BlackOps3.exe", 0xA55BEF0;
-	int mission_currentsequence1 : "BlackOps3.exe", 0xA55BDF0;
-	int mission_currentsequence2 : "BlackOps3.exe", 0xA55BDF4;
-	string70 mapname : "BlackOps3.exe", 0x940C5E8;
-	string70 gamemode : "BlackOps3.exe", 0x1770D5DC;
+	int loads_switchmap : "blackops3.exe", 0x348F7DC;
+	int loads_fastload : "blackops3.exe", 0x3534808;
+	int loads_whiteigc : "blackops3.exe", 0x4D4B910;
+	int cp_statsreset : "blackops3.exe", 0x53DC2A0;
+	int mission_skipto : "blackops3.exe", 0xA55BEF0;
+	int mission_currentsequence1 : "blackops3.exe", 0xA55BDF0;
+	int mission_currentsequence2 : "blackops3.exe", 0xA55BDF4;
+	string70 mapname : "blackops3.exe", 0x940C5E8;
+	string70 gamemode : "blackops3.exe", 0x1770D5DC;
 }
 
 startup
