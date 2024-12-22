@@ -152,8 +152,6 @@ startup
 	settings.SetToolTip("setting_ilskiptor", "Makes it so that the auto-splitter automatically resets when restarting a mission.");
 	settings.Add("setting_ilskiptos", false, "Split By Skipto", "setting_ilmode");
 	settings.SetToolTip("setting_ilskiptos", "Splits everytime a new skipto has been collected. Only use if you know how many skiptos there are per mission or have the proper split files for this setup.");
-	settings.Add("setting_ilskiptot", true, "Start After Skipto Reset", "setting_ilmode");
-	settings.SetToolTip("setting_ilskiptot", "Starts the timer directly after it is reset from the skipto check.");
 	settings.Add("load_remover", true, "Load Remover");
 	settings.SetToolTip("load_remover", "Removes loads automatically, enabling an LRT re-time without speedrun mods having to do so.");
 	settings.Add("setting_fastloads", true, "Remove Fast-Loads", "load_remover");
