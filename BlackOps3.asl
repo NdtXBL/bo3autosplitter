@@ -152,6 +152,8 @@ startup
 	settings.SetToolTip("setting_ilskiptor", "Makes it so that the auto-splitter automatically resets when restarting a mission.");
 	settings.Add("setting_ilskiptos", false, "Split By Skipto", "setting_ilmode");
 	settings.SetToolTip("setting_ilskiptos", "Splits everytime a new skipto has been collected. Only use if you know how many skiptos there are per mission or have the proper split files for this setup.");
+	settings.Add("setting_ilskiptost", false, "Start Safeguard", "setting_ilmode");
+	settings.SetToolTip("setting_ilskiptost", "Only starts the timer on IL mode after an auto-reset.");
 	settings.Add("load_remover", true, "Load Remover");
 	settings.SetToolTip("load_remover", "Removes loads automatically, enabling an LRT re-time without speedrun mods having to do so.");
 	settings.Add("setting_fastloads", true, "Remove Fast-Loads", "load_remover");
@@ -192,10 +194,124 @@ init
 
 start
 {
-	if ((settings["setting_ilmode"]) && (vars.ilreset == true) && (current.mapname != "cp_sh_mobile") && (current.mapname != "cp_sh_singapore") && (current.mapname != "cp_sh_cairo") && (current.mapname != "core_frontend") && (current.mapname != "cp_mi_sing_biodomes2") && (current.mapname != "cp_mi_cairo_ramses2") && (current.mapname != "cp_mi_cairo_infection2") && (current.mapname != "cp_mi_cairo_infection3") && (current.mapname != "cp_mi_cairo_lotus2") && (current.mapname != "cp_mi_cairo_lotus3") && (current.loads_switchmap != 0)) 
+	if ((settings["setting_ilmode"]) && ((vars.ilreset == true && settings["setting_ilskiptost"]) || !(settings["setting_ilskiptost"])) && (current.mapname != "cp_sh_mobile") && (current.mapname != "cp_sh_singapore") && (current.mapname != "cp_sh_cairo") && (current.mapname != "core_frontend") && (current.mapname != "cp_mi_sing_biodomes2") && (current.mapname != "cp_mi_cairo_ramses2") && (current.mapname != "cp_mi_cairo_infection2") && (current.mapname != "cp_mi_cairo_infection3") && (current.mapname != "cp_mi_cairo_lotus2") && (current.mapname != "cp_mi_cairo_lotus3") && (current.loads_switchmap != 0)) 
 	{
-	    vars.ilreset = false;
-	    return true;
+		if(current.gamemode=="cpzm") //nightmares
+		{
+			if((current.mapname=="cp_mi_eth_prologue") && (current.mission_skipto==8) && (current.mission_currentsequence1==1073741832))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_zurich_newworld") && (current.mission_skipto==8) && (current.mission_currentsequence2==2176))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_sing_blackstation") && (current.mission_skipto==8) && (current.mission_currentsequence2==128))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_sing_biodomes") && (current.mission_skipto==8) && (current.mission_currentsequence2==256))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_sing_sgen") && (current.mission_skipto==8) && (current.mission_currentsequence2==-2147450880))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_sing_vengeance") && (current.mission_skipto==8) && (current.mission_currentsequence1==1073743896))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_cairo_ramses") && (current.mission_skipto==8) && (current.mission_currentsequence2==12293))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_cairo_infection") && (current.mission_skipto==8) && (current.mission_currentsequence2==537395200))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_cairo_aquifer") && (current.mission_skipto==8) && (current.mission_currentsequence2==16809984))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_cairo_lotus") && (current.mission_skipto==8) && (current.mission_currentsequence1==1073741840))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_zurich_coalescence") && (current.mission_skipto==16))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+		}
+		else //campaign
+		{
+			if((current.mapname=="cp_mi_eth_prologue") && (current.mission_skipto==8) && (current.mission_currentsequence2==128))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_zurich_newworld") && (current.mission_skipto==8) && (current.mission_currentsequence2==1152))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_sing_blackstation") && (current.mission_skipto==8) && (current.mission_currentsequence2==64))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_sing_biodomes") && (current.mission_skipto==8) && (current.mission_currentsequence2==128))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_sing_sgen") && (current.mission_skipto==8) && (current.mission_currentsequence2==1073758208))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_sing_vengeance") && (current.mission_skipto==8) && (current.mission_currentsequence1==536871944))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_cairo_ramses") && (current.mission_skipto==8) && (current.mission_currentsequence2==6146))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_cairo_infection") && (current.mission_skipto==8) && (current.mission_currentsequence2==268697600))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_cairo_aquifer") && (current.mission_skipto==8) && (current.mission_currentsequence1==-2147221504))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_cairo_lotus") && (current.mission_skipto==8) && (current.mission_currentsequence1==536870912))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+			if((current.mapname=="cp_mi_zurich_coalescence") && (current.mission_skipto==16))
+			{
+				vars.ilreset = false;
+		    	return true;
+			}
+		}
 	}
 	if ((current.gamemode!="cpzm") && (current.mission_currentsequence2==128 && current.mission_skipto==8) && (current.mapname == "cp_mi_eth_prologue") && (current.loads_switchmap != 0)) return true;
 	if ((current.gamemode=="cpzm") && (current.mission_currentsequence2==-2147450880 && current.mission_skipto==8) && (current.mapname == "cp_mi_sing_sgen") && (current.loads_switchmap != 0)) return true;
@@ -447,7 +563,7 @@ reset
 		        vars.ilreset = true;
 		        return true;
 		    }
-		    if ((current.mapname=="cp_mi_zurich_coalescence") && (old.mission_skipto==8) && (current.mission_skipto==16) && (current.loads_switchmap != 0)) 
+		    if ((current.mapname=="cp_mi_zurich_coalescence") && (old.mission_skipto==0) && (current.mission_skipto==8) && (current.loads_switchmap != 0)) 
 		    {
 		        vars.ilreset = true;
 		        return true;
@@ -553,6 +669,34 @@ isLoading
 						{
 							return false;
 						}
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==512) && (current.mission_currentsequence1==3459)) //final alley objective
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==512) && (current.mission_currentsequence2==2048)) //final alley objective
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==512) && (current.mission_currentsequence2!=0)) //final alley objective
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==512) && (current.mission_currentsequence1==11137)) //plaza battle cutscene
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==1024)) //entire fucking plaza skipto. idk it just breaks here
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_sing_blackstation") && (current.mission_skipto==128)) //anchor part in darkness
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_sing_blackstation") && (current.mission_skipto==1024)) //slow motion battle in darkness
+						{
+							return false;
+						}
 					}
 					else //campaign
 					{
@@ -588,7 +732,7 @@ isLoading
 						{
 							return false;
 						}
-						if((current.mapname=="cp_mi_cairo_aquifer") && (current.mission_skipto==8) && (current.mission_currentsequence1==-2147221504))
+						if((current.mapname=="cp_mi_cairo_aquifer") && (current.mission_skipto==8) && (current.mission_currentsequence1==-2147221504)) //initial cutscene
 						{
 							return false;
 						}
@@ -600,7 +744,15 @@ isLoading
 						{
 							return false;
 						}
+						if((current.mapname=="cp_mi_cairo_lotus2") && (current.mission_skipto==16 || current.mission_skipto==32) && (current.mission_currentsequence1==268435464)) //before the mobile shop ride (sacrifices a bit of load)
+						{
+							return false;
+						}
 						if((current.mapname=="cp_mi_cairo_lotus2") && (current.mission_skipto==512) && (current.mission_currentsequence1==268435484)) //taylor cutscene
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_cairo_lotus2") && (current.mission_skipto==512 || current.mission_skipto==1024) && (current.mission_currentsequence2==32)) //post taylor cutscene
 						{
 							return false;
 						}
@@ -609,6 +761,34 @@ isLoading
 							return false;
 						}
 						if((current.mapname=="cp_mi_eth_prologue") && (current.mission_skipto==8) && (current.mission_currentsequence2==1024)) //initial cutscene
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==512) && (current.mission_currentsequence1==-2147481981)) //final alley objective
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==512) && (current.mission_currentsequence2==4194304)) //final alley objective
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==512) && (current.mission_currentsequence2!=0)) //final alley objective
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==512) && (current.mission_currentsequence1==-2147478143)) //plaza battle cutscene
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==1024)) //entire fucking plaza skipto. idk it just breaks here
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_sing_blackstation") && (current.mission_skipto==128)) //anchor part in darkness
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_sing_blackstation") && (current.mission_skipto==1024)) //slow motion battle in darkness
 						{
 							return false;
 						}
