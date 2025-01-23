@@ -21,11 +21,13 @@ The auto-splitter is could definitely use some dynamic memory searching to be mo
 
 **Reset by Skipto**: Enabling this will make the timer reset everytime the mission restarts by checking if the skipto memory code jumped from 0 to 8.
 
-**Split by Skipto**: When IL mode is enabled, this setting will auto-split everytime you encounter a new skipto (excluding the first three skiptos: 0, 8, & 16). You will need to make sure that you know the exact amount of skiptos per map.
+**Start Safeguard**: When IL mode is enabled, this setting will avoid starting the timer unless you have reset the mission. This is how IL mode used to function by default but I decided to seperate it.
+
+**Map Safeguard**: This 
 
 **Map Safeguard**: This will add a fail-safe where the game checks if the previous mission was really complete or not before splitting.
 
 **Auto-Split Missions**: This will determine if the auto-splitter will function on the desired mission(s)
 
 # Known Issues
-- Memory codes break in co-op lobbies (fast-loads on the load remover doesn't work, auto-splitter only works for host). You can avoid some of these issues by disabling the **Remove Fast-Loads**.
+- Memory codes break in co-op lobbies (fast-loads on the load remover doesn't work, auto-splitter only works for host). You can avoid some of these issues by disabling the **Remove Fast-Loads** option.
