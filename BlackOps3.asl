@@ -657,7 +657,15 @@ isLoading
 						{
 							return false;
 						}
+						if((current.mapname=="cp_mi_cairo_lotus2") && (current.mission_skipto==16 || current.mission_skipto==32) && (current.mission_currentsequence1==536870930)) //before the mobile shop ride (sacrifices a bit of load)
+						{
+							return false;
+						}
 						if((current.mapname=="cp_mi_cairo_lotus2") && (current.mission_skipto==512) && (current.mission_currentsequence1==536870970)) //taylor cutscene
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_cairo_lotus2") && (current.mission_skipto==512 || current.mission_skipto==1024) && (current.mission_currentsequence2==64)) //post taylor cutscene
 						{
 							return false;
 						}
@@ -666,6 +674,10 @@ isLoading
 							return false;
 						}
 						if((current.mapname=="cp_mi_eth_prologue") && (current.mission_skipto==8) && (current.mission_currentsequence2==2048)) //initial cutscene
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==32 || current.mission_skipto==256) && (current.mission_currentsequence1==11680 || current.mission_currentsequence1==2689  || current.mission_currentsequence1==10880 || current.mission_currentsequence1==10881)) //dedonating spikes
 						{
 							return false;
 						}
@@ -769,6 +781,10 @@ isLoading
 							return false;
 						}
 						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==512) && (current.mission_currentsequence2==4194304)) //final alley objective
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==32 || current.mission_skipto==256) && (current.mission_currentsequence1==5792 || current.mission_currentsequence1==5120  || current.mission_currentsequence1==5376 || current.mission_currentsequence1==5377)) //dedonating spikes
 						{
 							return false;
 						}
