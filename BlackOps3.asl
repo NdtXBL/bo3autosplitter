@@ -709,6 +709,10 @@ isLoading
 						{
 							return false;
 						}
+						if((current.mapname=="cp_mi_sing_vengeance") && (current.mission_skipto==32) && (current.mission_currentsequence1==49192 || current.mission_currentsequence1==16392 || current.mission_currentsequence1==49160)) //slow motion battle vengeance
+						{
+							return false;
+						}
 					}
 					else //campaign
 					{
@@ -805,6 +809,10 @@ isLoading
 							return false;
 						}
 						if((current.mapname=="cp_mi_sing_blackstation") && (current.mission_skipto==1024)) //slow motion battle in darkness
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_sing_vengeance") && (current.mission_skipto==32) && (current.mission_currentsequence1==24576 || current.mission_currentsequence1==8192)) //slow motion battle vengeance
 						{
 							return false;
 						}
