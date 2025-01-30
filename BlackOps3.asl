@@ -495,7 +495,7 @@ split
 	}
 	if(settings["setting_ilmode"])
 	{
-		if ((current.mapname=="cp_mi_eth_prologue") || (current.mapname=="cp_mi_zurich_newworld") || (current.mapname=="cp_mi_sing_blackstation") || (current.mapname=="cp_mi_sing_biodomes") || (current.mapname=="cp_mi_sing_biodomes2") || (current.mapname=="cp_mi_sing_vengeance") || (current.mapname=="cp_mi_cairo_ramses") || (current.mapname=="cp_mi_cairo_ramses2") || (current.mapname=="cp_mi_cairo_infection") || (current.mapname=="cp_mi_cairo_infection2") || (current.mapname=="cp_mi_cairo_infection3") || (current.mapname=="cp_mi_cairo_aquifer") || (current.mapname=="cp_mi_cairo_lotus") || (current.mapname=="cp_mi_cairo_lotus2") || (current.mapname=="cp_mi_cairo_lotus3") || (current.mapname=="cp_mi_zurich_coalescence"))
+		if ((current.mapname=="cp_mi_eth_prologue") || (current.mapname=="cp_mi_zurich_newworld") || (current.mapname=="cp_mi_sing_blackstation") || (current.mapname=="cp_mi_sing_biodomes") || (current.mapname=="cp_mi_sing_biodomes2") || (current.mapname=="cp_mi_sing_sgen") || (current.mapname=="cp_mi_sing_vengeance") || (current.mapname=="cp_mi_cairo_ramses") || (current.mapname=="cp_mi_cairo_ramses2") || (current.mapname=="cp_mi_cairo_infection") || (current.mapname=="cp_mi_cairo_infection2") || (current.mapname=="cp_mi_cairo_infection3") || (current.mapname=="cp_mi_cairo_aquifer") || (current.mapname=="cp_mi_cairo_lotus") || (current.mapname=="cp_mi_cairo_lotus2") || (current.mapname=="cp_mi_cairo_lotus3") || (current.mapname=="cp_mi_zurich_coalescence"))
 		{
 			if(current.mission_skipto!=0 && current.mission_skipto!=8 && current.mission_skipto!=16 && old.mission_skipto<current.mission_skipto && !vars.skiptoHistory.Contains(current.mission_skipto) && settings["setting_ilskiptos"])
 			{
@@ -677,7 +677,7 @@ isLoading
 						{
 							return false;
 						}
-						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==32 || current.mission_skipto==256) && (current.mission_currentsequence1==11680 || current.mission_currentsequence1==2689  || current.mission_currentsequence1==10880 || current.mission_currentsequence1==10881)) //dedonating spikes
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==32 || current.mission_skipto==256) && (current.mission_currentsequence1==11680 || current.mission_currentsequence1==2689  || current.mission_currentsequence1==10880 || current.mission_currentsequence1==10881)) //detonating spikes
 						{
 							return false;
 						}
@@ -788,7 +788,7 @@ isLoading
 						{
 							return false;
 						}
-						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==32 || current.mission_skipto==256) && (current.mission_currentsequence1==5792 || current.mission_currentsequence1==5120  || current.mission_currentsequence1==5376 || current.mission_currentsequence1==5377)) //dedonating spikes
+						if((current.mapname=="cp_mi_cairo_ramses2") && (current.mission_skipto==32 || current.mission_skipto==256) && (current.mission_currentsequence1==5792 || current.mission_currentsequence1==5120  || current.mission_currentsequence1==5376 || current.mission_currentsequence1==5377)) //detonating spikes
 						{
 							return false;
 						}
@@ -826,6 +826,7 @@ isLoading
 			if ((current.mapname=="cp_mi_zurich_newworld") && (current.mission_skipto==262144) && (current.loads_whiteigc!=0)) return true;
 			if ((current.mapname=="cp_mi_zurich_newworld") && (current.mission_skipto==33554432) && (current.loads_whiteigc!=0)) return true;
 			if ((current.mapname=="cp_mi_zurich_newworld") && (current.mission_skipto==536870912) && (current.loads_whiteigc!=0)) return true;
+			if ((current.mapname=="cp_mi_zurich_newworld") && (current.mission_skipto==262144) && (current.mission_currentsequence2==96 || current.mission_currentsequence1==352 || current.mission_currentsequence1==712)) return true;
 		}
 	}
 	return false;
