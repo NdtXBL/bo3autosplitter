@@ -17,7 +17,7 @@ The auto-splitter is could definitely use some dynamic memory searching to be mo
 
 **Remove Map Load-out Sequence**: Disables the load remover removing the mission load-out sequence possibly because the code has a chance of breaking on co-op. Recommended you do leave this on unless the memory code breaks.
 
-**IL Mode**: Enabling this will make the timer reset everytime the mission restarts and automatically start the timer whenever the mission briefing appears on any mission which is intended for in-level speedruns. If you are speedrunning full-game, turn this setting off.
+**IL Mode**: Enabling this along with its settings will make the timer reset everytime the mission restarts, automatically start the timer whenever the mission briefing appears on any mission, and split whenever you reach a skipto which is intended for in-level speedruns. If you are speedrunning full-game, you should probably turn this setting off. But if you know what you are doing, you could set this up to be used for mega splits on full-game by only having the skipto split option toggled.
 
 **Reset by Skipto**: Enabling this will make the timer reset everytime the mission restarts by checking if the skipto memory code jumped from 0 to 8.
 
