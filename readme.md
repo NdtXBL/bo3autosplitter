@@ -23,8 +23,6 @@ The auto-splitter is could definitely use some dynamic memory searching to be mo
 
 **Start Safeguard**: When IL mode is enabled, this setting will avoid starting the timer unless you have reset the mission. This is how IL mode used to function by default but I decided to seperate it.
 
-**Map Safeguard**: This 
-
 **Map Safeguard**: This will add a fail-safe where the game checks if the previous mission was really complete or not before splitting.
 
 **Auto-Split Missions**: This will determine if the auto-splitter will function on the desired mission(s)
