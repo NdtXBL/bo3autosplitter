@@ -24,7 +24,6 @@ Example: While on the main menu, you can just search for -1 codes. Then boot up 
 (while the load is active) and search for anything above -1. It usually is 2 in this scenario, but I'd search for values in between 1 and 4 to be safe. Then
 just switch back to -1 when the fastload is complete.
 
-
 --------------------------------------------------------------------------------
 
 loads_whiteigc: accounts for the mini-loading screens on new world, which is where the white infinite loading movie plays.
@@ -90,6 +89,19 @@ for "ctf". Switch to search and destroy and search for "sd". Finally, you can to
 
 */
 
+state("BlackOps3", "windows")
+{
+	int loads_switchmap : 0x31538B8;
+	int loads_fastload : 0x348B588;
+	int loads_whiteigc : 0x3B23000;
+	int cp_statsreset : 0x9BB4710;
+	int mission_skipto : 0x7F31120;
+	int mission_currentsequence1 : 0x7F31020;
+	int mission_currentsequence2 : 0x7F31024;
+	string70 mapname : 0x9111CD0;
+	string70 gamemode : 0xBF7E5A9;
+}
+
 state("BlackOps3", "steam")
 {
 	int loads_switchmap : 0x348F7DC;
@@ -101,19 +113,6 @@ state("BlackOps3", "steam")
 	int mission_currentsequence2 : 0xA55BDF4;
 	string70 mapname : 0x940C5E8;
 	string70 gamemode : 0x1770D5DC;
-}
-
-state("BlackOps3", "windows")
-{
-	int loads_switchmap : 0x33D075C;
-	int loads_fastload : 0x3475788;
-	int loads_whiteigc : 0x3B10F80;
-	int cp_statsreset : 0x9BB4710;
-	int mission_skipto : 0x7F1F0A0;
-	int mission_currentsequence1 : 0x7F1EFA0;
-	int mission_currentsequence2 : 0x7F1EFA4;
-	string70 mapname : 0x90FC4D0;
-	string70 gamemode : 0x1858937C;
 }
 
 state("boiii_vanilla", "boiii")
@@ -702,7 +701,7 @@ isLoading
 						{
 							return false;
 						}
-						if((current.mapname=="cp_mi_cairo_ramses") && (current.mission_skipto==64) && (current.mission_currentsequence1==362)) //RAPs cutscene
+						if((current.mapname=="cp_mi_cairo_ramses") && (current.mission_skipto==64) && (current.mission_currentsequence1==362 || current.mission_currentsequence1!=0)) //RAPs cutscene
 						{
 							return false;
 						}
@@ -809,11 +808,11 @@ isLoading
 						{
 							return false;
 						}
-						if((current.mapname=="cp_mi_cairo_ramses") && (current.mission_skipto==64) && (current.mission_currentsequence1==-2147483468)) //RAPs cutscene
+						if((current.mapname=="cp_mi_cairo_ramses") && (current.mission_skipto==64) && (current.mission_currentsequence1!=0)) //RAPs cutscene
 						{
 							return false;
 						}
-						if((current.mapname=="cp_mi_eth_prologue") && (current.mission_skipto==8) && (current.mission_currentsequence2==1024)) //initial cutscene
+						if((current.mapname=="cp_mi_eth_prologue") && (current.mission_skipto==8) && (current.mission_currentsequence2!=0)) //initial cutscene
 						{
 							return false;
 						}
@@ -849,7 +848,11 @@ isLoading
 						{
 							return false;
 						}
-						if((current.mapname=="cp_mi_sing_vengeance") && (current.mission_skipto==32) && (current.mission_currentsequence1==24576 || current.mission_currentsequence1==8192)) //slow motion battle vengeance
+						if((current.mapname=="cp_mi_sing_vengeance") && (current.mission_skipto==8) && (current.mission_currentsequence1==50184 || current.mission_currentsequence1==536871944)) //slow motion battle vengeance
+						{
+							return false;
+						}
+						if((current.mapname=="cp_mi_sing_vengeance") && (current.mission_skipto==32) && (current.mission_currentsequence1==24576 || current.mission_currentsequence1==8192 || current.mission_currentsequence1==57344 || current.mission_currentsequence1==57360)) //slow motion battle vengeance
 						{
 							return false;
 						}
